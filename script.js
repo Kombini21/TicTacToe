@@ -25,7 +25,15 @@
                 document.getElementById('tabuleiro').appendChild(this.row).setAttribute('id',`${i}row`);
             };
             
-        }
+        },
+
+        quemComeca: function() {
+            calculoDoJogador = Math.floor(Math.random() * jogadores.lenght)
+            this.primeiroJogador = jogadores[calculoDoJogador]
+            this.segundoJogador = jogadores[calculoDoJogador + 1]
+        },
+
+        
     }
     
 
@@ -38,6 +46,6 @@
 
 
 
-    jogo.init();
+    //jogo.init();
 
 })()
