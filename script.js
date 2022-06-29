@@ -6,7 +6,7 @@
         init: function() {
             this.fazerTabuleiro();
             this.quemComeca(); 
-            this.colocarX();
+            this.colocarXeO();
             this.finalizarJogo();
             this.atualizarScore();
         },
@@ -28,12 +28,58 @@
         },
 
         quemComeca: function() {
-            calculoDoJogador = Math.floor(Math.random() * jogadores.lenght)
-            this.primeiroJogador = jogadores[calculoDoJogador]
-            this.segundoJogador = jogadores[calculoDoJogador + 1]
+
+            let calculoDoJogador = Math.floor(Math.random() * 2);
+            this.primeiroIndex = calculoDoJogador;
+            this.primeiroJogador = jogo.jogadores[this.primeiroIndex];
+            if (this.primeiroIndex == 1) {
+                this.segundoJogador = jogo.jogadores[0];
+            } else if (this.primeiroIndex == 0) {
+                this.segundoJogador = jogo.jogadores[1];
+            }
         },
 
-        
+        colocarXeO: function() {
+
+            let gameOn = 1;
+
+            let primeiroJogadorVez = 1; 
+            letsegundoJogadorVez = 0; 
+
+            let celulasTabuleiro = document.querySelectorAll('.box');
+
+
+            while (gameOn == 1) {
+
+                while (primeiroJogadorVez == 1) {
+
+                    celulasTabuleiro.forEach( celula => {
+                        celula.addEventListener('click', function(){
+                            this.style.backgroundColor = '#DA4167';
+                            segundoJogadorVez = 1;
+                            primeiroJogadorVez = 0;
+                            
+                        })   
+                    })
+                }
+
+                while (segundoJogadorVez == 1) {
+
+                    celulasTabuleiro.forEach( celula => {
+                        celula.addEventListener('click', function(){
+                            this.style.backgroundColor = '#F78764';
+                            primeiroJogadorVez = 1;
+                            segundoJogadorVez = 0;
+                        })   
+                    })
+
+                    
+                }
+
+
+            }
+
+        }
     }
     
 
@@ -46,6 +92,6 @@
 
 
 
-    //jogo.init();
+    jogo.quemComeca();
 
 })()
