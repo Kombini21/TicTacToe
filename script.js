@@ -6,9 +6,7 @@
         init: function() {
             this.fazerTabuleiro();
             this.quemComeca(); 
-            this.colocarXeO();
-            //this.finalizarJogo();
-            //this.atualizarScore();
+            this.oJogo();
         },
 
         fazerTabuleiro: function() {
@@ -41,51 +39,89 @@
             }
         },
 
-        colocarXeO: function() {
-
-            let gameOn = 1;
-
-            let primeiroJogadorVez = 1; 
-            let segundoJogadorVez = 0; 
+        oJogo: function() {
 
             let celulasTabuleiro = document.querySelectorAll('.box');
-
-            function jogadaJogador1() {
+            let switchColor = 1;
+            console.log(celulasTabuleiro);
+            jogadaJogadores();
+            
+            function jogadaJogadores() {
                 celulasTabuleiro.forEach( celula => {
                     celula.addEventListener('click', function(){
-                        this.style.backgroundColor = '#DA4167';
-                        jogadaJogador2();
+
+                        if (celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)'  ) { 
+
+                                console.log("Voce venceu!!");
+                        }
+
+                        else if (
+                        celulasTabuleiro[0].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[1].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[2].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[3].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[5].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[7].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[8].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[0].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[3].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[1].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[7].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[2].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[5].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[8].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[0].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[8].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                        celulasTabuleiro[2].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)' &&
+                        celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)') {
+
+                            console.log("Voce venceu!!");
+                        }
+
+                        else if (switchColor == 1) {
+                            this.style.backgroundColor = '#DA4167';
+                            switchColor = 0;
+                            console.log(celulasTabuleiro[0].style.backgroundColor);
+                        }
+                        else if (switchColor == 0) {
+                            this.style.backgroundColor = '#41dab4';
+                            switchColor = 1;
+                        }
                     })   
                 })
             }
-
-            function jogadaJogador2() {
-                celulasTabuleiro.forEach( celula => {
-                    celula.addEventListener('click', function(){
-                        this.style.backgroundColor = '#F78764';
-                        jogadaJogador1();
-                    })   
-                })
-            }
-
-            if (gameOn == 1) {
-                
-                jogadaJogador1()   //hora do git
-            }
-
         }
     }
     
-
-
-
-
-
-
-
-
-
-
     jogo.init();
 
 })()
