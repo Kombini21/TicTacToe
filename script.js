@@ -43,7 +43,6 @@
 
             let celulasTabuleiro = document.querySelectorAll('.box');
             let switchColor = 1;
-            console.log(celulasTabuleiro);
             jogadaJogadores();
             
             function jogadaJogadores() {
@@ -76,6 +75,24 @@
                             celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)'  ) { 
 
                                 console.log("Voce venceu!!");
+
+                                let tabuleiroNv = document.getElementById('container');
+
+                                this.botaoNovamente = document.createElement('button');
+                                this.vencedorText = document.createElement('div');
+
+                                tabuleiroNv.appendChild(this.vencedorText);
+                                tabuleiroNv.appendChild(this.botaoNovamente);
+
+                                
+
+                                this.vencedorText.className = 'jogadorTexto';
+                                this.botaoNovamente.className = 'botaoVencedor';
+
+
+                                this.vencedorText.textContent ='O Jogador venceu!';
+                                this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+
                         }
 
                         else if (
@@ -105,16 +122,52 @@
                         celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)') {
 
                             console.log("Voce venceu!!");
+
+                            let tabuleiroNv = document.getElementById('container');
+
+                            this.botaoNovamente = document.createElement('button');
+                            this.vencedorText = document.createElement('div');
+
+                            tabuleiroNv.appendChild(this.vencedorText);
+                            tabuleiroNv.appendChild(this.botaoNovamente);
+
+                                
+
+                            this.vencedorText.className = 'jogadorTexto';
+                            this.botaoNovamente.className = 'botaoVencedor';
+
+
+                            this.vencedorText.textContent ='O Computador venceu!';
+                            this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
                         }
 
                         else if (switchColor == 1) {
-                            this.style.backgroundColor = '#DA4167';
+                            this.style.backgroundColor = 'rgb(218, 65, 103)';
                             switchColor = 0;
                             console.log(celulasTabuleiro[0].style.backgroundColor);
                         }
                         else if (switchColor == 0) {
-                            this.style.backgroundColor = '#41dab4';
-                            switchColor = 1;
+
+                            let index = Math.floor((Math.random() * 8));
+
+
+                            if (celulasTabuleiro[index].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                                celulasTabuleiro[index].style.backgroundColor == 'rgb(218, 65, 103)') {
+
+                                 while (celulasTabuleiro[index].style.backgroundColor == 'rgb(65, 218, 180)' ||
+                                        celulasTabuleiro[index].style.backgroundColor == 'rgb(218, 65, 103)'){
+                                    index = Math.floor((Math.random() * 8));
+                                    }
+
+                                celulasTabuleiro[index].style.backgroundColor = 'rgb(65, 218, 180)';
+                                switchColor = 1;
+                            }
+                            else{ 
+                                celulasTabuleiro[index].style.backgroundColor = 'rgb(65, 218, 180)';
+                                switchColor = 1;
+                            }
+                            
+
                         }
                     })   
                 })
