@@ -48,31 +48,36 @@
             function jogadaJogadores() {
                 celulasTabuleiro.forEach( celula => {
                     celula.addEventListener('click', function(){
+                        if (this.style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            this.style.backgroundColor == 'rgb(65, 218, 180)'){
 
-                        if (celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                                console.log("Mr rockafela")
+                        }
+
+                        if ((celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
-                            celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)') ||
+                            (celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' &&
                             celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' &&
-                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)'  ) { 
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)')  ) { 
 
                                 console.log("Voce venceu!!");
 
@@ -94,6 +99,48 @@
                                 this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
 
                         }
+
+
+                        else if ((celulasTabuleiro[0].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[0].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[1].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[1].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[2].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[2].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[3].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[3].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[4].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[5].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[5].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[7].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[7].style.backgroundColor == 'rgb(65, 218, 180)') &&
+                            (celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
+                            celulasTabuleiro[8].style.backgroundColor == 'rgb(65, 218, 180)')){
+                                
+                                let tabuleiroNv = document.getElementById('container');
+
+                                this.botaoNovamente = document.createElement('button');
+                                this.vencedorText = document.createElement('div');
+
+                                tabuleiroNv.appendChild(this.vencedorText);
+                                tabuleiroNv.appendChild(this.botaoNovamente);
+
+                                
+
+                                this.vencedorText.className = 'jogadorTexto';
+                                this.botaoNovamente.className = 'botaoVencedor';
+
+
+                                this.vencedorText.textContent ='Empatou!';
+                                this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+
+                        
+                            }
+
+                        
 
                         else if (
                         celulasTabuleiro[0].style.backgroundColor == 'rgb(65, 218, 180)' &&
@@ -142,9 +189,16 @@
                         }
 
                         else if (switchColor == 1) {
-                            this.style.backgroundColor = 'rgb(218, 65, 103)';
-                            switchColor = 0;
-                            console.log(celulasTabuleiro[0].style.backgroundColor);
+                            if (this.style.backgroundColor == 'rgb(218, 65, 103)' ||
+                                this.style.backgroundColor == 'rgb(65, 218, 180)'){
+
+                                console.log("Mr rockafela");
+                            }else{
+
+                                this.style.backgroundColor = 'rgb(218, 65, 103)';
+                                switchColor = 0;   
+                            }
+
                         }
                         else if (switchColor == 0) {
 
@@ -156,6 +210,7 @@
 
                                  while (celulasTabuleiro[index].style.backgroundColor == 'rgb(65, 218, 180)' ||
                                         celulasTabuleiro[index].style.backgroundColor == 'rgb(218, 65, 103)'){
+
                                     index = Math.floor((Math.random() * 8));
                                     }
 
