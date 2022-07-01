@@ -43,8 +43,32 @@
 
             let celulasTabuleiro = document.querySelectorAll('.box');
             let switchColor = 1;
+
+            let tabuleiroNv = document.getElementById('box-container');
+            let vencedorText = document.createElement('div');
+            let botaoNovamente = document.createElement('button');
+            botaoNovamente.style.display = 'none';
+            botaoNovamente.addEventListener("click", resetarTable);
+
+            tabuleiroNv.appendChild(vencedorText);
+            tabuleiroNv.appendChild(botaoNovamente);
+            
+
             jogadaJogadores();
             
+
+
+            function resetarTable() {
+
+                
+                for (i=0; i < 9; i++) {
+                    celulasTabuleiro[i].style.backgroundColor = '#467599'; 
+                }
+                vencedorText.textContent = '';
+                botaoNovamente.style.display = 'none';
+                
+            }
+
             function jogadaJogadores() {
                 celulasTabuleiro.forEach( celula => {
                     celula.addEventListener('click', function(){
@@ -80,23 +104,18 @@
                             celulasTabuleiro[6].style.backgroundColor == 'rgb(218, 65, 103)')  ) { 
 
                                 console.log("Voce venceu!!");
-
-                                let tabuleiroNv = document.getElementById('container');
-
-                                this.botaoNovamente = document.createElement('button');
-                                this.vencedorText = document.createElement('div');
-
-                                tabuleiroNv.appendChild(this.vencedorText);
-                                tabuleiroNv.appendChild(this.botaoNovamente);
+                                botaoNovamente.style.display = 'initial';
+                    
 
                                 
 
-                                this.vencedorText.className = 'jogadorTexto';
-                                this.botaoNovamente.className = 'botaoVencedor';
+                                vencedorText.className = 'jogadorTexto';
+                                botaoNovamente.className = 'botaoVencedor';
 
 
-                                this.vencedorText.textContent ='O Jogador venceu!';
-                                this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+                                vencedorText.textContent ='O Jogador venceu!';
+                                botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+                                
 
                         }
 
@@ -119,23 +138,16 @@
                             celulasTabuleiro[7].style.backgroundColor == 'rgb(65, 218, 180)') &&
                             (celulasTabuleiro[8].style.backgroundColor == 'rgb(218, 65, 103)' ||
                             celulasTabuleiro[8].style.backgroundColor == 'rgb(65, 218, 180)')){
-                                
-                                let tabuleiroNv = document.getElementById('container');
+                
+                                botaoNovamente.style.display = 'initial';
 
-                                this.botaoNovamente = document.createElement('button');
-                                this.vencedorText = document.createElement('div');
-
-                                tabuleiroNv.appendChild(this.vencedorText);
-                                tabuleiroNv.appendChild(this.botaoNovamente);
-
-                                
-
-                                this.vencedorText.className = 'jogadorTexto';
-                                this.botaoNovamente.className = 'botaoVencedor';
+                                vencedorText.className = 'jogadorTexto';
+                                botaoNovamente.className = 'botaoVencedor';
 
 
-                                this.vencedorText.textContent ='Empatou!';
-                                this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+                                vencedorText.textContent ='Empatou!';
+                                botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+
 
                         
                             }
@@ -168,24 +180,19 @@
                         celulasTabuleiro[4].style.backgroundColor == 'rgb(65, 218, 180)' &&
                         celulasTabuleiro[6].style.backgroundColor == 'rgb(65, 218, 180)') {
 
-                            console.log("Voce venceu!!");
+                            
 
-                            let tabuleiroNv = document.getElementById('container');
+                            botaoNovamente.style.display = 'initial';
 
-                            this.botaoNovamente = document.createElement('button');
-                            this.vencedorText = document.createElement('div');
-
-                            tabuleiroNv.appendChild(this.vencedorText);
-                            tabuleiroNv.appendChild(this.botaoNovamente);
-
+                    
                                 
 
-                            this.vencedorText.className = 'jogadorTexto';
-                            this.botaoNovamente.className = 'botaoVencedor';
+                            vencedorText.className = 'jogadorTexto';
+                            botaoNovamente.className = 'botaoVencedor';
 
 
-                            this.vencedorText.textContent ='O Computador venceu!';
-                            this.botaoNovamente.textContent = 'JOGAR NOVAMENTE';
+                            vencedorText.textContent ='O Computador venceu!';
+                            botaoNovamente.textContent = 'JOGAR NOVAMENTE';
                         }
 
                         else if (switchColor == 1) {
